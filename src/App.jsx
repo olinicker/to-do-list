@@ -1,12 +1,19 @@
 import { useState } from 'react'
+import { Task } from './Task'
 
-function App() {
+export function App() {
   return (
-    <h1>Hello World</h1>
+    <div>
+      <Task
+        content="Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer."
+      />
+      <Task
+        content="Nova lista"
+      />
+      <h1>Hello World</h1>
+    </div>
   )
 }
-
-export default App
 
 
 

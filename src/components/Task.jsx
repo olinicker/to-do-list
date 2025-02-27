@@ -1,5 +1,5 @@
-import styles from './Task.module.css'
-import { Trash, Check } from "@phosphor-icons/react"
+import styles from './Task.module.css';
+import { Trash, Check } from "@phosphor-icons/react";
 
 export function Task(props) {
   return (

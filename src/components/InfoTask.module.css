@@ -1,0 +1,48 @@
+.infoTask {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  font: var(--text-14);
+}
+
+.created {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.created p {
+  font: var(--text-14);
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.created span {
+  font-weight: bold;
+  background-color: var(--gray-400);
+  color: var(--gray-200);
+  border-radius: 9px;
+  padding-inline: 8px;
+}
+
+
+.done p {
+  font: var(--text-14);
+  font-weight: bold;
+  color: var(--purple);
+}
+
+.done span {
+  font-weight: bold;
+  background-color: var(--gray-400);
+  color: var(--gray-200);
+  border-radius: 9px;
+  padding-inline: 8px;
+}

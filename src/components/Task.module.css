@@ -8,7 +8,7 @@
   color: var(--gray-100);
   font: var(--text-14);
   height: 4.5rem;
-  width: 46rem;
+  width: 100%;
 
   & button {
     background-color: transparent;
@@ -36,7 +36,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 50%;
-  border: 3px solid var(--blue);
+  border: 2px solid var(--blue);
   width: 24px;
   height: 24px;
   position: relative;

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Task } from './components/Task';
 import { Header } from './components/Header';
-import { InputTask } from './components/InputTask'
+import { InputTask } from './components/InputTask';
+import { InfoTask } from './components/InfoTask';
 
 import styles from './App.module.css';
 
@@ -13,6 +14,8 @@ export function App() {
       <Header />
       <div className={styles.wrapper}>
         <InputTask />
+        <InfoTask />
+
         <Task
           content="Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer."
         />

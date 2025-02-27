@@ -1,0 +1,73 @@
+.task {
+  background-color: var(--gray-500);
+  padding-inline: 1rem;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--gray-100);
+  font: var(--text-14);
+  height: 4.5rem;
+  width: 46rem;
+
+  & button {
+    background-color: transparent;
+    line-height: 0;
+    border: 0;
+    color: var(--gray-300);
+    cursor: pointer;
+    border-radius: 2px;
+  }
+
+  & button:hover {
+    color: var(--danger);
+    background-color: var(--gray-400);
+  }
+
+  & p {
+    height: 40px;
+    width: 632px;
+  }
+}
+
+.circular {
+  background-color: var(--gray-500);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50%;
+  border: 3px solid var(--blue);
+  width: 24px;
+  height: 24px;
+  position: relative;
+
+  & input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+
+  &:hover {
+    background-color: var(--blue-dark);
+  }
+
+  &:not(:checked) {
+    .checkButton {
+      opacity: 0;
+    }
+  }
+
+  &:has(:checked) {
+    background-color: var(--purple-dark);
+    border-color: var(--purple-dark);
+
+    .checkButton {
+      opacity: 1;
+    }
+  }
+
+  &:has(:checked):hover {
+    background-color: var(--purple);
+    border-color: var(--purple);
+  }
+}

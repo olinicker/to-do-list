@@ -1,0 +1,33 @@
+.inputTask {
+  width: 736px;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  position: relativez;
+  margin-bottom: 64px;
+  margin-top: -27px;
+}
+
+.input {
+  background-color: var(--gray-500);
+  border: 1px solid var(--gray-700);
+  border-radius: .5rem;
+  color: var(--gray-100);
+  width: 638px;
+  padding: 1rem;
+  font: var(--text-16);
+}
+
+.button {
+  display: flex;
+  background-color: var(--blue-dark);
+  color: var(--gray-100);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 90px;
+  border-radius: 8px;
+  border: 0;
+  font: var(--text-14);
+  font-weight: bold;
+}

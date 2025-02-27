@@ -1,16 +1,34 @@
-import { useState } from 'react'
-import { Task } from './Task'
+import { useState } from 'react';
+import { Task } from './components/Task';
+import { Header } from './components/Header';
+import { InputTask } from './components/InputTask'
+
+import styles from './App.module.css';
+
+import './global.css';
 
 export function App() {
   return (
     <div>
-      <Task
-        content="Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer."
-      />
-      <Task
-        content="Nova lista"
-      />
-      <h1>Hello World</h1>
+      <Header />
+      <div className={styles.wrapper}>
+        <InputTask />
+        <Task
+          content="Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer."
+        />
+        <Task
+          content="Nova lista"
+        />
+        <Task
+          content="Nova lista"
+        />
+        <Task
+          content="Nova lista"
+        />
+        <Task
+          content="Nova lista"
+        />
+      </div>
     </div>
   )
 }

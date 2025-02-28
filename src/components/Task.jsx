@@ -1,9 +1,12 @@
 import styles from './Task.module.css';
 import { Trash, Check } from "@phosphor-icons/react";
 
-// content
+export function Task({ content, deleteTask }) {
 
-export function Task({ content }) {
+  function handleDeleteCommment(){
+    deleteTask(content)
+  }
+
   return (
     <div className={styles.task}>
       <div className={styles.circular}>
@@ -12,7 +15,7 @@ export function Task({ content }) {
       </div>
 
       <p>{content}</p>
-      <button title='deletar comentário'>
+      <button onClick={handleDeleteCommment} title='deletar comentário'>
         <Trash size={24} />
       </button>
     </div>

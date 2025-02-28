@@ -7,40 +7,61 @@ import { Task } from './Task.jsx'
 
 export function Tasks() {
 
-  const [tasks, addTasks] = useState([
-    'Primeira tarefa!!',
-  ])
+  const [task, setTask] = useState(
+    ['Primeira task'],
+  )
+  
+  const [newTaskText, setNewTaskText] = useState('')
+
+  function deleteTask(taskToDelete){
+    const taskWithoutDeletedOne = task.filter(task => {
+        return task != taskToDelete
+      }
+    )
+    setTask(taskWithoutDeletedOne)
+  }
 
   function handleCreateNewTaks() {
     event.preventDefault()
+    setTask([...task, newTaskText])
+    setNewTaskText('')
+  }
 
-    const newCommentText = event.target.task.value
-
-    addTasks([...tasks, newCommentText])
+  function newTaskChange(){
+    setNewTaskText(event.target.value)
   }
 
   return (
     <div>
-
       <form onSubmit={handleCreateNewTaks} className={styles.inputTask}>
-        <input className={styles.input} type="text" name="task" id="" placeholder="Adicione uma nova tarefa" />
+        <input 
+        onChange={newTaskChange}
+        className={styles.input} 
+        value={newTaskText}
+        type="text"
+        name="task" 
+        placeholder="Adicione uma nova tarefa" />
         <button type="submit" className={styles.button}>
           Criar
           <PlusCircle size={24} />
         </button>
       </form>
 
-      z
-      <InfoTask />
+      <InfoTask lenght={task.length} />
 
       <div className={styles.tasksList}>
         {
-          tasks.map(tasks => {
-            return <Task content={tasks} />
+          task.map(task => {
+            return( 
+              <Task 
+              key={task}
+              content={task}
+              deleteTask={deleteTask}
+              />
+            )
           })
         }
       </div>
-
     </div>
   )
 }

@@ -17,6 +17,7 @@
     color: var(--gray-300);
     cursor: pointer;
     border-radius: 2px;
+    
   }
 
   & button:hover {
@@ -25,8 +26,8 @@
   }
 
   & p {
-    height: 40px;
-    width: 632px;
+    width: 100%;
+    padding: 1rem;
   }
 }
 
@@ -40,8 +41,10 @@
   width: 24px;
   height: 24px;
   position: relative;
-
+  
+  
   & input {
+    cursor: pointer;
     position: absolute;
     inset: 0;
     opacity: 0;

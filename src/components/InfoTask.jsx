@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import styles from './InfoTask.module.css';
+import { useState } from "react";
+import styles from "./InfoTask.module.css";
 
-export function InfoTask({ lenght, informationCompleted }) {
-
+export function InfoTask({ lenght, tasksCompleted }) {
   return (
     <div className={styles.infoTask}>
       <div className={styles.created}>
@@ -12,8 +11,10 @@ export function InfoTask({ lenght, informationCompleted }) {
 
       <div className={styles.done}>
         <p>Concluídas</p>
-        <span>{informationCompleted} de {lenght}</span>
+        <span>
+          {tasksCompleted} de {lenght}
+        </span>
       </div>
     </div>
-  )
+  );
 }

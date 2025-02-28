@@ -1,67 +1,106 @@
 import { PlusCircle } from "@phosphor-icons/react";
 
-import styles from './Tasks.module.css';
+import styles from "./Tasks.module.css";
 import { useState } from "react";
-import { InfoTask } from './InfoTask.jsx'
-import { Task } from './Task.jsx'
+import { InfoTask } from "./InfoTask.jsx";
+import { Task } from "./Task.jsx";
 
 export function Tasks() {
+  const [tasks, setTasks] = useState([
+    {
+      content: "Primeira task",
+      completed: false,
+    },
+  ]);
 
-  const [task, setTask] = useState(
-    ['Primeira task'],
-  )
-  
-  const [newTaskText, setNewTaskText] = useState('')
+  const [newTaskText, setNewTaskText] = useState("");
 
-  function deleteTask(taskToDelete){
-    const taskWithoutDeletedOne = task.filter(task => {
-        return task != taskToDelete
-      }
-    )
-    setTask(taskWithoutDeletedOne)
+  function countCompletedTasks() {
+    const tasksCompleted = tasks.filter((task) => {
+      return task.completed == true;
+    });
+    return tasksCompleted.length;
+  }
+
+  function completeTask(taskToComplete) {
+    let taskCompleted = {};
+
+    if (taskToComplete.completed) {
+      taskCompleted = {
+        content: taskToComplete.content,
+        completed: false,
+      };
+    } else {
+      taskCompleted = {
+        content: taskToComplete.content,
+        completed: true,
+      };
+    }
+
+    const taskWithoutTaskDontCompleted = tasks.filter((task) => {
+      return task != taskToComplete;
+    });
+
+    taskWithoutTaskDontCompleted.push(taskCompleted);
+    setTasks(taskWithoutTaskDontCompleted);
+
+    countCompletedTasks();
+  }
+
+  function deleteTask(taskToDelete) {
+    const taskWithoutDeletedOne = tasks.filter((task) => {
+      return task != taskToDelete;
+    });
+    setTasks(taskWithoutDeletedOne);
   }
 
   function handleCreateNewTaks() {
-    event.preventDefault()
-    setTask([...task, newTaskText])
-    setNewTaskText('')
+    event.preventDefault();
+    setTasks([
+      ...tasks,
+      {
+        content: newTaskText,
+        completed: false,
+      },
+    ]);
+    setNewTaskText("");
   }
 
-  function newTaskChange(){
-    setNewTaskText(event.target.value)
+  function newTaskChange() {
+    setNewTaskText(event.target.value);
   }
 
   return (
     <div>
       <form onSubmit={handleCreateNewTaks} className={styles.inputTask}>
-        <input 
-        onChange={newTaskChange}
-        className={styles.input} 
-        value={newTaskText}
-        type="text"
-        name="task" 
-        placeholder="Adicione uma nova tarefa" />
+        <input
+          onChange={newTaskChange}
+          className={styles.input}
+          value={newTaskText}
+          type="text"
+          name="task"
+          placeholder="Adicione uma nova tarefa"
+        />
         <button type="submit" className={styles.button}>
           Criar
           <PlusCircle size={24} />
         </button>
       </form>
 
-      <InfoTask lenght={task.length} />
+      <InfoTask lenght={tasks.length} tasksCompleted={countCompletedTasks()} />
 
       <div className={styles.tasksList}>
-        {
-          task.map(task => {
-            return( 
-              <Task 
+        {tasks.map((task) => {
+          return (
+            <Task
               key={task}
-              content={task}
-              deleteTask={deleteTask}
-              />
-            )
-          })
-        }
+              task={task}
+              deleteTask={() => deleteTask(task)}
+              completeTask={completeTask}
+            />
+          );
+        })}
       </div>
     </div>
-  )
+  );
 }

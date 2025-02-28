@@ -23,28 +23,37 @@ export function Tasks() {
   }
 
   function completeTask(taskToComplete) {
+    const tasksComplete = tasks.map((task) => {
+      if (task.content == taskToComplete.content) {
+        task.completed = !task.completed;
+      }
+      return task;
+    });
+    setTasks(tasksComplete);
+    /*
     let taskCompleted = {};
-
     if (taskToComplete.completed) {
       taskCompleted = {
         content: taskToComplete.content,
         completed: false,
-      };
-    } else {
-      taskCompleted = {
+        };
+        } else {
+          taskCompleted = {
         content: taskToComplete.content,
         completed: true,
-      };
-    }
-
-    const taskWithoutTaskDontCompleted = tasks.filter((task) => {
-      return task != taskToComplete;
-    });
-
-    taskWithoutTaskDontCompleted.push(taskCompleted);
-    setTasks(taskWithoutTaskDontCompleted);
-
-    countCompletedTasks();
+        };
+        }
+        
+        const taskWithoutTaskDontCompleted = tasks.filter((task) => {
+          return task != taskToComplete;
+          });
+          
+          taskWithoutTaskDontCompleted.push(taskCompleted);
+          
+          setTasks(taskWithoutTaskDontCompleted);
+          
+          countCompletedTasks();
+    */
   }
 
   function deleteTask(taskToDelete) {

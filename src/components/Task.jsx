@@ -1,7 +1,9 @@
 import styles from './Task.module.css';
 import { Trash, Check } from "@phosphor-icons/react";
 
-export function Task(props) {
+// content
+
+export function Task({ content }) {
   return (
     <div className={styles.task}>
       <div className={styles.circular}>
@@ -9,7 +11,7 @@ export function Task(props) {
         <input type="checkbox" name="" id="" />
       </div>
 
-      <p>{props.content}</p>
+      <p>{content}</p>
       <button title='deletar comentário'>
         <Trash size={24} />
       </button>
